@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Post.module.css";
 import Comment from "./components/Comment";
+import Avatar from "./components/Avatar";
 
 function Post(props) {
   let comments = [
@@ -35,7 +36,7 @@ function Post(props) {
       <article className={styles.post}>
         <header>
           <div className={styles.author}>
-            <img src={props.icon} />
+            <Avatar src={props.icon} />
             <div className={styles.authorInfo}>
               <strong>{props.author}</strong>
               <span>{props.authorInfo}</span>
