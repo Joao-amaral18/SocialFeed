@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Post from "./Post";
 import Header from "./components/Header";
 import styles from "./App.module.css";
@@ -9,8 +8,7 @@ function App() {
     {
       author: "as vezes vc me pergunta",
       icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio ut sem nulla pharetra. Pulvinar sapien et ligula ullamcorper. Gravida in fermentum et sollicitudin ac orci phasellus egestas. Tincidunt arcu non sodales neque sodales ut etiam sit amet.",
+      content: "Lorem ipsum dolor s.",
       authorInfo: "This is your brain",
       published: "2022-08-13 12:21:00",
     },
@@ -18,7 +16,7 @@ function App() {
       author: "eu mesmo ",
       icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio ut sem nulla pharetra. Pulvinar sapien et ligula ullamcorper. Gravida in fermentum et sollicitudin ac orci phasellus egestas. Tincidunt arcu non sodales neque sodales ut etiam sit amet.",
+        "Lo orci phasellus egestas. Tincidunt arcu non sodales neque sodales ut etiam sit amet.",
       authorInfo: "This is your brain",
       published: "2022-08-13 12:21:00",
     },
@@ -26,9 +24,41 @@ function App() {
       author: "virtor",
       icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio ut sem nulla pharetra. Pulvinar sapien et ligula ullamcorper. Gravida in fermentum et sollicitudin ac orci phasellus egestas. Tincidunt arcu non sodales neque sodales ut etiam sit amet.",
+        "retra. Pulvinar sapien et ligula ullamcorper. Gravida in  arcu non sodales neque sodales ut etiam sit amet.",
       authorInfo: "This is your brain",
       published: "2022-08-13 12:21:00",
+    },
+  ];
+
+  let arraa = [
+    {
+      author: {
+        name: "a",
+        icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
+        authorInfo: "This is your brain",
+      },
+      content: "Lorem ipsum dolor s.",
+      published: new Date("2022-08-13 12:21:00"),
+    },
+    {
+      author: {
+        name: "a",
+        icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
+        authorInfo: "This is your brain",
+      },
+      content:
+        "Lo orci phasellus egestas. Tincidunt arcu non sodales neque sodales ut etiam sit amet.",
+      published: new Date("2022-08-13 12:21:00"),
+    },
+    {
+      author: {
+        name: "a",
+        icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
+        authorInfo: "This is your brain",
+      },
+      content:
+        "retra. Pulvinar sapien et ligula ullamcorper. Gravida in  arcu non sodales neque sodales ut etiam sit amet.",
+      published: new Date("2022-08-13 12:21:00"),
     },
   ];
 
@@ -51,12 +81,22 @@ function App() {
           about={profile.about}
         />
         <main>
-          {arra.map((val, i) => (
+          {/* {arra.map((val, i) => (
             <Post
               key={i}
               icon={val.icon}
               author={val.author}
               authorInfo={val.authorInfo}
+              content={val.content}
+              published={val.published}
+            />
+          ))} */}
+          {arraa.map((val, i) => (
+            <Post
+              key={i}
+              icon={val.author.icon}
+              author={val.author.name}
+              authorInfo={val.author.authorInfo}
               content={val.content}
               published={val.published}
             />
