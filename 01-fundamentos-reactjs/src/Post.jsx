@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import styles from "./Post.module.css";
 import Comment from "./components/Comment";
 import { format, formatDistanceToNow } from "date-fns";
@@ -13,7 +14,7 @@ function Post(props) {
     locale: ptBR,
     addSuffix: true,
   });
-  let comments = [
+  let comment = [
     {
       author: "as vezes vc me pergunta",
       icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
@@ -39,7 +40,39 @@ function Post(props) {
       published: "2022-08-13 12:21:00",
     },
   ];
+  const [comments, setComments] = useState([
+    {
+      author: "as vezes vc me pergunta",
+      icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
+      comment:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      authorInfo: "This is your brain",
+      published: "2022-08-13 12:21:00",
+    },
+    {
+      author: "eu mesmo ",
+      icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
+      comment:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      authorInfo: "This is your brain",
+      published: "2022-08-13 12:21:00",
+    },
+  ]);
 
+  function handleCreateNewComent() {
+    event.preventDefault();
+    setComments([
+      ...comments,
+      {
+        author: "as vezes vc me pergunta",
+        icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
+        comment:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+        authorInfo: "This is your brain",
+        published: "2022-08-13 12:21:00",
+      },
+    ]);
+  }
   return (
     <div>
       <article className={styles.post}>
@@ -52,16 +85,17 @@ function Post(props) {
             </div>{" "}
           </div>{" "}
           <time title={publishedAt} dateTime={props.published.toISOString()}>
-            {publishedAtFromNow}
+            {" "}
+            {publishedAtFromNow}{" "}
           </time>{" "}
         </header>{" "}
         <div className={styles.content}>{props.content}</div>{" "}
-        <form className={styles.commentForm}>
+        <form onSubmit={handleCreateNewComent} className={styles.commentForm}>
           {" "}
           <textarea placeholder="Deixe seu comentario"></textarea>{" "}
           <footer>
             {" "}
-            <button type="submit">Comentar</button>{" "}
+            <button>Comentar</button>{" "}
           </footer>{" "}
         </form>{" "}
         <div className={styles.commentList}>
