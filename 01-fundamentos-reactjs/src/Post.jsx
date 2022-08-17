@@ -59,6 +59,8 @@ function Post(props) {
     },
   ]);
 
+  const [newCommentText, setNewCommentText] = useState("");
+
   function handleCreateNewComent() {
     event.preventDefault();
     setComments([
@@ -66,12 +68,15 @@ function Post(props) {
       {
         author: "as vezes vc me pergunta",
         icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
-        comment:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+        comment: newCommentText,
         authorInfo: "This is your brain",
         published: "2022-08-13 12:21:00",
       },
     ]);
+    setNewCommentText("");
+  }
+  function handleNewCommentChange() {
+    setNewCommentText(event.target.value);
   }
   return (
     <div>
@@ -92,7 +97,12 @@ function Post(props) {
         <div className={styles.content}>{props.content}</div>{" "}
         <form onSubmit={handleCreateNewComent} className={styles.commentForm}>
           {" "}
-          <textarea placeholder="Deixe seu comentario"></textarea>{" "}
+          <textarea
+            name="comment"
+            onChange={handleNewCommentChange}
+            placeholder="Deixe seu comentario"
+            value={newCommentText}
+          ></textarea>{" "}
           <footer>
             {" "}
             <button>Comentar</button>{" "}
