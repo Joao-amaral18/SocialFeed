@@ -33,6 +33,7 @@ function App() {
   let arraa = [
     {
       author: {
+        id:1,
         name: "a",
         icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
         authorInfo: "This is your brain",
@@ -42,6 +43,7 @@ function App() {
     },
     {
       author: {
+        id:2,
         name: "a",
         icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
         authorInfo: "This is your brain",
@@ -52,6 +54,7 @@ function App() {
     },
     {
       author: {
+        id:3,
         name: "a",
         icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
         authorInfo: "This is your brain",
@@ -91,9 +94,9 @@ function App() {
               published={val.published}
             />
           ))} */}
-          {arraa.map((val, i) => (
+          {arraa.map(val => (
             <Post
-              key={i}
+              key={val.id}
               icon={val.author.icon}
               author={val.author.name}
               authorInfo={val.author.authorInfo}

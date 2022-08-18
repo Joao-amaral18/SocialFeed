@@ -112,8 +112,9 @@ function Post(props) {
           {" "}
           <div className={styles.commentList}>
             {" "}
-            {comments.map((val, i) => (
+            {comments.map(val => (
               <Comment
+              key={val.comment}
                 author={val.author}
                 comment={val.comment}
                 icon={val.icon}
