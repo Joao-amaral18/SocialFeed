@@ -14,32 +14,6 @@ function Post(props) {
     locale: ptBR,
     addSuffix: true,
   });
-  let comment = [
-    {
-      author: "as vezes vc me pergunta",
-      icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-      authorInfo: "This is your brain",
-      published: "2022-08-13 12:21:00",
-    },
-    {
-      author: "eu mesmo ",
-      icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-      authorInfo: "This is your brain",
-      published: "2022-08-13 12:21:00",
-    },
-    {
-      author: "virtor",
-      icon: "https://avatars.githubusercontent.com/u/62806084?s=100&v=4",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-      authorInfo: "This is your brain",
-      published: "2022-08-13 12:21:00",
-    },
-  ];
   const [comments, setComments] = useState([
     {
       author: "as vezes vc me pergunta",
@@ -78,6 +52,10 @@ function Post(props) {
   function handleNewCommentChange() {
     setNewCommentText(event.target.value);
   }
+
+  function deleteComment(){
+    console.log('opa')
+  }
   return (
     <div>
       <article className={styles.post}>
@@ -115,6 +93,7 @@ function Post(props) {
             {comments.map(val => (
               <Comment
               key={val.comment}
+              onDelete={deleteComment}
                 author={val.author}
                 comment={val.comment}
                 icon={val.icon}

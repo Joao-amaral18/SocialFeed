@@ -2,28 +2,25 @@ import { ThumbsUp, Trash } from "phosphor-react";
 import styles from "./Comment.module.css";
 import Avatar from "./Avatar";
 
-function Comment(props) {
-  function handleDeleteComment() {
-    console.log(props.comment);
-    props.onDeleteComment(props.comments);
-  }
+function Comment({author, comment, icon, onDelete}) {
   return (
     <div className={styles.comment}>
-      <Avatar hasBorder={false} src={props.icon} />
+      <Avatar hasBorder={false} src={icon} />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>{props.author}</strong>
+              <strong>{author}</strong>
 
-              <p>{props.comment}</p>
+              <p>{comment}</p>
               <time>2h ago</time>
             </div>
-            <button onClick={handleDeleteComment} title="Delete Comment">
-              {" "}
-              <Trash size={24} />{" "}
-            </button>{" "}
+            <button
+            onClick={onDelete}
+            title="Delete Comment">
+              <Trash size={24} />
+            </button>
           </header>
         </div>
         <footer>
