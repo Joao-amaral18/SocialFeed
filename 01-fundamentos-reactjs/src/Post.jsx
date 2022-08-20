@@ -53,8 +53,13 @@ function Post(props) {
     setNewCommentText(event.target.value);
   }
 
-  function deleteComment(){
-    console.log('opa')
+  function deleteComment(commentToDelete){
+    const commentToBeDeleted = comments.filter(comment => {
+ console.log(commentToDelete)
+      return comment.comment !== commentToDelete
+    })
+
+    setComments(commentToBeDeleted)
   }
   return (
     <div>

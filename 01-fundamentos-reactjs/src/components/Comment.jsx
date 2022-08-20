@@ -3,6 +3,9 @@ import styles from "./Comment.module.css";
 import Avatar from "./Avatar";
 
 function Comment({author, comment, icon, onDelete}) {
+  function handleDeleteComment(){
+    onDelete(comment)
+  }
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src={icon} />
@@ -17,7 +20,7 @@ function Comment({author, comment, icon, onDelete}) {
               <time>2h ago</time>
             </div>
             <button
-            onClick={onDelete}
+            onClick={handleDeleteComment}
             title="Delete Comment">
               <Trash size={24} />
             </button>
