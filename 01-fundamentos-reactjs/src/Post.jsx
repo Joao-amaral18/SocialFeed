@@ -61,6 +61,7 @@ function Post(props) {
 
     setComments(commentToBeDeleted)
   }
+  const isNewCommentEmpity = newCommentText.length === 0;
   return (
     <div>
       <article className={styles.post}>
@@ -88,7 +89,8 @@ function Post(props) {
           ></textarea>{" "}
           <footer>
             {" "}
-            <button>Comentar</button>{" "}
+            <button
+            disabled={isNewCommentEmpity}>Comentar</button>{" "}
           </footer>{" "}
         </form>{" "}
         <div className={styles.commentList}>
